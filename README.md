@@ -6,3 +6,10 @@ Contains:
 - Database Schema
 - Sample Data
 - Future Database Scripts
+## Database
+
+- MongoDB
+- Mongoose
+
+Connection file:
+database/config/db.js
