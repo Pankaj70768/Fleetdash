@@ -3,6 +3,7 @@ import "./Dashboard.css";
 
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
+import Table from "../../components/table/Table";
 
 
 function Dashboard(){
@@ -27,6 +28,7 @@ return(
 <h1>
 FleetDash Dashboard
 </h1>
+
 
 
 <div className="cards">
@@ -58,6 +60,9 @@ value="10"
 
 </div>
 
+
+
+<Table/>
 
 
 </div>
