@@ -1,6 +1,6 @@
 import Card from "../../components/card/Card";
 import "./Dashboard.css";
-
+import Alerts from "../../components/alerts/Alerts";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Table from "../../components/table/Table";
@@ -63,7 +63,7 @@ value="10"
 
 
 <Table/>
-
+<Alerts/>
 
 </div>
 
