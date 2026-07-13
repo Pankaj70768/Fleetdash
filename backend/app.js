@@ -1,10 +1,9 @@
 const express = require("express");
-
 const app = express();
-
+const vehicleRoutes = require("./src/routes/vehicleRoutes");
 // Middleware
 app.use(express.json());
-
+app.use("/api/vehicles", vehicleRoutes);
 // Home Route
 app.get("/", (req, res) => {
     res.json({
