@@ -67,8 +67,113 @@ const getVehicleById = async (req, res) => {
         });
     }
 };
+// Update Vehicle
+
+const updateVehicle = async (req, res) => {
+
+    try {
+
+        const vehicle = await Vehicle.findByIdAndUpdate(
+
+            req.params.id,
+
+            req.body,
+
+            {
+                new: true,
+                runValidators: true
+            }
+
+        );
+
+        if (!vehicle) {
+
+            return res.status(404).json({
+
+                success: false,
+
+                message: "Vehicle not found"
+
+            });
+
+        }
+
+        res.status(200).json({
+
+            success: true,
+
+            data: vehicle
+
+        });
+
+    }
+
+    catch (error) {
+
+        res.status(500).json({
+
+            success: false,
+
+            message: error.message
+
+        });
+
+    }
+
+};
+// Delete Vehicle
+
+const deleteVehicle = async (req, res) => {
+
+    try {
+
+        const vehicle = await Vehicle.findByIdAndDelete(req.params.id);
+
+        if (!vehicle) {
+
+            return res.status(404).json({
+
+                success: false,
+
+                message: "Vehicle not found"
+
+            });
+
+        }
+
+        res.status(200).json({
+
+            success: true,
+
+            message: "Vehicle deleted successfully"
+
+        });
+
+    }
+
+    catch (error) {
+
+        res.status(500).json({
+
+            success: false,
+
+            message: error.message
+
+        });
+
+    }
+
+};
 module.exports = {
+
     createVehicle,
+
     getAllVehicles,
+
     getVehicleById,
+
+    updateVehicle,
+
+    deleteVehicle
+
 };
