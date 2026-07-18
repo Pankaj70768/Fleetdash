@@ -1,35 +1,91 @@
-.stat-card{
+.stat-card {
+
 
 background:white;
 
-padding:25px;
+padding:26px;
 
-border-radius:15px;
+border-radius:18px;
 
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+border:1px solid #e2e8f0;
 
-width:220px;
+transition:0.3s;
+
 
 }
+
+
+.stat-card:hover{
+
+
+transform:translateY(-5px);
+
+box-shadow:0 15px 30px rgba(15,23,42,0.12);
+
+
+}
+
 
 
 .stat-card h3{
 
+
+font-size:14px;
+
+font-weight:600;
+
 color:#64748b;
 
-font-size:16px;
+text-transform:uppercase;
+
+letter-spacing:0.5px;
+
 
 }
 
 
+
 .stat-card p{
 
-font-size:32px;
 
-font-weight:700;
+margin-top:18px;
+
+font-size:36px;
+
+font-weight:800;
 
 color:#0f172a;
 
-margin-top:15px;
+
+}
+
+.card-icon{
+
+width:40px;
+
+height:40px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#ecfdf5;
+
+color:#059669;
+
+border-radius:12px;
+
+margin-bottom:20px;
+
+}
+
+
+.stat-card span{
+
+font-size:13px;
+
+color:#94a3b8;
 
 }

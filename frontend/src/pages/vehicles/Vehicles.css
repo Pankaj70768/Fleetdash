@@ -1,0 +1,10 @@
+.page-container {
+    padding: 20px;
+}
+
+.page-card {
+    margin-top: 20px;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+}

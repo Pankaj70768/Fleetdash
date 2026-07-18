@@ -38,16 +38,25 @@ function Table() {
 
     return (
 
-        <div className="table-container">
+    <div className="table-container">
 
-            <h2>Recent Vehicles</h2>
-            <input
-    className="search-box"
-    type="text"
-    placeholder="Search vehicle..."
-    value={search}
-    onChange={(e)=>setSearch(e.target.value)}
+<div className="table-header">
+
+<h2>
+Vehicle Monitoring
+</h2>
+
+
+<input
+className="search-box"
+type="text"
+placeholder="Search vehicle..."
+value={search}
+onChange={(e)=>setSearch(e.target.value)}
 />
+
+
+</div>
 
             <table>
 
