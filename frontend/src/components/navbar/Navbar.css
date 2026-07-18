@@ -1,33 +1,141 @@
 .navbar{
 
-height:70px;
+height:80px;
 
 background:white;
 
-display:flex;
+border-bottom:1px solid #e2e8f0;
 
-justify-content:space-between;
+display:flex;
 
 align-items:center;
 
-padding:0 30px;
+justify-content:space-between;
 
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
+padding:0 40px;
 
 }
 
 
-.navbar h3{
+
+.nav-left h3{
+
+font-size:22px;
+
+color:#0f172a;
+
+margin:0;
+
+}
+
+
+
+.nav-left p{
+
+margin-top:5px;
+
+font-size:14px;
+
+color:#64748b;
+
+}
+
+
+
+.nav-right{
+
+display:flex;
+
+align-items:center;
+
+gap:25px;
+
+}
+
+
+
+.notification{
+
+position:relative;
+
+font-size:22px;
+
+color:#475569;
+
+cursor:pointer;
+
+}
+
+
+
+.notification span{
+
+position:absolute;
+
+top:-8px;
+
+right:-10px;
+
+background:#ef4444;
+
+color:white;
+
+font-size:11px;
+
+height:18px;
+
+width:18px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:50%;
+
+}
+
+
+
+.profile{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+
+
+.profile svg{
+
+font-size:38px;
+
+color:#64748b;
+
+}
+
+
+
+.profile h4{
+
+margin:0;
 
 color:#0f172a;
 
 }
 
 
-.profile{
 
-font-weight:600;
+.profile p{
 
-color:#2563eb;
+margin:3px 0 0;
+
+font-size:13px;
+
+color:#64748b;
 
 }

@@ -1,182 +1,428 @@
 import "./Register.css";
 import Logo from "../../components/logo/Logo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import API from "../../services/api";
+
 
 function Register() {
+
+
+  const navigate = useNavigate();
+
+
+
   const [formData, setFormData] = useState({
+
     name: "",
     email: "",
     phone: "",
     password: "",
+
   });
+
+
 
   const [errors, setErrors] = useState({});
 
+
+  const [serverError, setServerError] = useState("");
+
+
+  const [loading, setLoading] = useState(false);
+
+
+
+
   const handleChange = (e) => {
+
+
     const { name, value } = e.target;
 
+
+
     if (name === "name") {
-      // Allow only alphabets and spaces
+
+
       const onlyLetters = value.replace(/[^A-Za-z ]/g, "");
+
+
       setFormData({
+
         ...formData,
+
         name: onlyLetters,
+
       });
+
+
     }
+
+
 
     else if (name === "phone") {
-      // Allow only digits and max 10
-      const onlyNumbers = value.replace(/\D/g, "").slice(0, 10);
+
+
+      const onlyNumbers = value.replace(/\D/g, "").slice(0,10);
+
 
       setFormData({
+
         ...formData,
+
         phone: onlyNumbers,
+
       });
+
+
     }
+
+
 
     else {
+
+
       setFormData({
+
         ...formData,
+
         [name]: value,
+
       });
+
+
     }
+
+
   };
 
+
+
+
+
   const validate = () => {
+
+
     let newErrors = {};
 
-    // Name
-    if (formData.name.trim() === "") {
-      newErrors.name = "Name is required.";
-    } else if (!/^[A-Za-z ]+$/.test(formData.name)) {
-      newErrors.name = "Only alphabets are allowed.";
+
+
+    if(formData.name.trim()===""){
+
+      newErrors.name="Name is required.";
+
     }
 
-    // Email
-    if (formData.email.trim() === "") {
-      newErrors.email = "Email is required.";
-    } else if (
-      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(
-        formData.email
-      )
-    ) {
-      newErrors.email = "Enter a valid email address.";
+
+
+    if(formData.email.trim()===""){
+
+      newErrors.email="Email is required.";
+
     }
 
-    // Phone
-    if (formData.phone.trim() === "") {
-      newErrors.phone = "Phone number is required.";
-    } else if (!/^[0-9]{10}$/.test(formData.phone)) {
-      newErrors.phone = "Phone number must be exactly 10 digits.";
+
+
+    else if(
+      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(formData.email)
+    ){
+
+      newErrors.email="Enter a valid email address.";
+
     }
 
-    // Password
-    if (formData.password.trim() === "") {
-      newErrors.password = "Password is required.";
-    } else if (
-      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&_])[A-Za-z\d@$!%*?#&_]{8,}$/.test(
-        formData.password
-      )
-    ) {
-      newErrors.password =
-        "Password must contain 8+ characters, uppercase, lowercase, number and special character.";
+
+
+
+
+    if(formData.phone.trim()===""){
+
+      newErrors.phone="Phone number is required.";
+
     }
+
+
+    else if(!/^[0-9]{10}$/.test(formData.phone)){
+
+
+      newErrors.phone="Phone number must be exactly 10 digits.";
+
+    }
+
+
+
+
+
+
+    if(formData.password.trim()===""){
+
+      newErrors.password="Password is required.";
+
+    }
+
+
 
     setErrors(newErrors);
 
-    return Object.keys(newErrors).length === 0;
+
+
+    return Object.keys(newErrors).length===0;
+
+
   };
 
-  const handleSubmit = (e) => {
+
+
+
+
+
+
+  const handleSubmit = async(e)=>{
+
+
     e.preventDefault();
 
-    if (validate()) {
+
+
+    if(!validate()) return;
+
+
+
+
+    try{
+
+
+      setLoading(true);
+
+      setServerError("");
+
+
+
+      await API.post("/register", formData);
+
+
+
+
       alert("Registration Successful!");
+
+
+
+      navigate("/login");
+
+
+
     }
+
+
+
+    catch(error){
+
+
+
+      setServerError(
+
+        error.response?.data?.message ||
+
+        "Registration failed. Try again."
+
+      );
+
+
+    }
+
+
+
+    finally{
+
+
+      setLoading(false);
+
+
+    }
+
+
   };
 
-  return (
-    <div className="auth-page">
-      <div className="auth-card">
 
-        <Logo />
 
-        <h2>Create Account</h2>
 
-        <p className="description">
-          Join FleetDash to manage vehicles efficiently
-        </p>
 
-        <form onSubmit={handleSubmit}>
+return (
 
-          <input
-            type="text"
-            placeholder="Full Name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-          />
+<div className="auth-page">
 
-          {errors.name && (
-            <p className="error">{errors.name}</p>
-          )}
 
-          <input
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
+<div className="auth-card">
 
-          {errors.email && (
-            <p className="error">{errors.email}</p>
-          )}
 
-          <input
-            type="text"
-            placeholder="Mobile Number"
-            name="phone"
-            value={formData.phone}
-            maxLength={10}
-            onChange={handleChange}
-          />
+<Logo />
 
-          {errors.phone && (
-            <p className="error">{errors.phone}</p>
-          )}
 
-          <input
-            type="password"
-            placeholder="Create Password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
+<h2>Create Account</h2>
 
-          {errors.password && (
-            <p className="error">{errors.password}</p>
-          )}
 
-          <button type="submit">
-            Create Account
-          </button>
+<p className="description">
 
-        </form>
+Join FleetDash to manage vehicles efficiently
 
-        <div className="switch">
-          Already registered?
+</p>
 
-          <Link to="/login">
-            Login
-          </Link>
 
-        </div>
 
-      </div>
-    </div>
-  );
+<form onSubmit={handleSubmit}>
+
+
+<input
+
+type="text"
+
+placeholder="Full Name"
+
+name="name"
+
+value={formData.name}
+
+onChange={handleChange}
+
+/>
+
+
+{errors.name && <p className="error">{errors.name}</p>}
+
+
+
+
+<input
+
+type="email"
+
+placeholder="Email Address"
+
+name="email"
+
+value={formData.email}
+
+onChange={handleChange}
+
+/>
+
+
+{errors.email && <p className="error">{errors.email}</p>}
+
+
+
+
+
+<input
+
+type="text"
+
+placeholder="Mobile Number"
+
+name="phone"
+
+value={formData.phone}
+
+maxLength={10}
+
+onChange={handleChange}
+
+/>
+
+
+{errors.phone && <p className="error">{errors.phone}</p>}
+
+
+
+
+
+<input
+
+type="password"
+
+placeholder="Create Password"
+
+name="password"
+
+value={formData.password}
+
+onChange={handleChange}
+
+/>
+
+
+{errors.password && <p className="error">{errors.password}</p>}
+
+
+
+
+
+{serverError && (
+
+<p className="error">
+
+{serverError}
+
+</p>
+
+)}
+
+
+
+
+<button type="submit">
+
+
+{
+
+loading
+
+?
+
+"Creating Account..."
+
+:
+
+"Create Account"
+
 }
+
+
+</button>
+
+
+
+</form>
+
+
+
+
+<div className="switch">
+
+Already registered?
+
+
+<Link to="/login">
+
+Login
+
+</Link>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+);
+
+
+}
+
 
 export default Register;

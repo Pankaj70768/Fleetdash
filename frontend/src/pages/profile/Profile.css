@@ -1,0 +1,48 @@
+.profile{
+
+padding:30px;
+
+}
+
+
+.profile-card{
+
+background:#292524;
+padding:25px;
+border-radius:15px;
+width:350px;
+
+}
+
+
+.profile-card label{
+
+display:block;
+margin-top:15px;
+color:#A8A29E;
+
+}
+
+
+.profile-card input{
+
+width:100%;
+padding:10px;
+margin-top:5px;
+border-radius:8px;
+border:none;
+
+}
+
+
+.profile-card button{
+
+margin-top:20px;
+padding:12px 20px;
+border:none;
+border-radius:8px;
+background:#B45309;
+color:#FFF7ED;
+cursor:pointer;
+
+}

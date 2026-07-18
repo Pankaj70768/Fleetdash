@@ -1,49 +1,90 @@
 import "./Sidebar.css";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
-function Sidebar(){
+function Sidebar() {
 
-return(
+const navigate = useNavigate();
+
+
+const logout = () => {
+
+  localStorage.removeItem("token");
+
+  navigate("/login");
+
+};
+
+
+return (
 
 <div className="sidebar">
 
-<h2>
-FleetDash
-</h2>
+
+<div className="brand">
+
+<h2>🚛 FleetDash</h2>
+
+<p>Fleet Operations</p>
+
+</div>
 
 
-<ul>
 
-<li className="active">
+<div className="menu">
+
+
+<NavLink to="/dashboard">
 Dashboard
-</li>
+</NavLink>
 
-<li>
+
+<NavLink to="/vehicles">
 Vehicles
-</li>
+</NavLink>
 
-<li>
+
+<NavLink to="/live-map">
 Live Map
-</li>
+</NavLink>
 
-<li>
+
+<NavLink to="/alerts">
 Alerts
-</li>
+</NavLink>
 
-<li>
+
+<NavLink to="/reports">
 Reports
-</li>
+</NavLink>
 
-<li>
+
+<NavLink to="/settings">
 Settings
-</li>
+</NavLink>
 
-</ul>
+
+<NavLink to="/profile">
+Profile
+</NavLink>
+
+
+
+<button 
+className="logout-btn"
+onClick={logout}
+>
+Logout
+</button>
+
 
 
 </div>
 
-)
+
+</div>
+
+);
 
 }
 

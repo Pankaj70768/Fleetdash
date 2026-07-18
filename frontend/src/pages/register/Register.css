@@ -1,242 +1,62 @@
-/* Background */
-
-.auth-page{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#0f172a,#1d4ed8);
-    padding:30px;
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #1C1917;
+    color: #E7E5E4;
+    padding: 25px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
 }
 
 
-/* Card */
-
-.auth-card{
-
-    width:430px;
-    background:rgba(255,255,255,.96);
-
-    padding:45px;
-
-    border-radius:25px;
-
-    box-shadow:0 25px 60px rgba(0,0,0,.25);
-
-    animation:slideUp .7s ease;
-
-    text-align:center;
-
+.sidebar h2 {
+    margin-bottom: 40px;
+    color: #FDE68A;
+    font-size: 22px;
+    font-weight: 700;
 }
 
 
-/* Heading */
-
-.auth-card h2{
-
-    margin-top:30px;
-    margin-bottom:8px;
-
-    font-size:30px;
-
-    color:#0f172a;
-
-    font-weight:700;
-
+.sidebar ul {
+    list-style: none;
+    padding: 0;
 }
 
 
-/* Description */
-
-.description{
-
-    color:#64748b;
-
-    margin-bottom:30px;
-
-    font-size:15px;
-
+.sidebar li {
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
 }
 
 
-/* Form */
-
-.auth-card form{
-
-    display:flex;
-
-    flex-direction:column;
-
+.sidebar a {
+    text-decoration: none;
+    color: #A8A29E;
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 
-/* Input */
-
-.auth-card input{
-
-    width:100%;
-
-    padding:15px;
-
-    margin-top:14px;
-
-    border-radius:12px;
-
-    border:1px solid #cbd5e1;
-
-    font-size:15px;
-
-    transition:.3s;
-
-    outline:none;
-
-    box-sizing:border-box;
-
+.sidebar li:hover {
+    background: #292524;
 }
 
 
-.auth-card input:focus{
-
-    border-color:#2563eb;
-
-    box-shadow:0 0 0 4px rgba(37,99,235,.15);
-
+.sidebar li:hover a {
+    color: #FDE68A;
 }
 
 
-/* Error */
-
-.error{
-
-    color:#dc2626;
-
-    font-size:13px;
-
-    text-align:left;
-
-    margin-top:5px;
-
-    margin-bottom:2px;
-
-    padding-left:5px;
-
+.sidebar .active {
+    background: #B45309;
+    color: #FFF7ED;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(180,83,9,0.35);
 }
 
 
-/* Button */
-
-.auth-card button{
-
-    width:100%;
-
-    padding:15px;
-
-    margin-top:28px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:linear-gradient(135deg,#2563eb,#06b6d4);
-
-    color:white;
-
-    font-size:16px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-
-.auth-card button:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:0 10px 25px rgba(37,99,235,.35);
-
-}
-
-
-/* Bottom Text */
-
-.switch{
-
-    margin-top:28px;
-
-    color:#64748b;
-
-    font-size:15px;
-
-}
-
-
-.switch a{
-
-    color:#2563eb;
-
-    text-decoration:none;
-
-    font-weight:600;
-
-    margin-left:6px;
-
-    transition:.3s;
-
-}
-
-
-.switch a:hover{
-
-    color:#1d4ed8;
-
-    text-decoration:underline;
-
-}
-
-
-/* Animation */
-
-@keyframes slideUp{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(45px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-
-/* Responsive */
-
-@media(max-width:500px){
-
-.auth-card{
-
-    width:95%;
-
-    padding:30px;
-
-}
-
-.auth-card h2{
-
-    font-size:26px;
-
-}
-
+.sidebar .active a {
+    color: #FFF7ED;
 }
