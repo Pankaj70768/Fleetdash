@@ -1,68 +1,152 @@
-.fleet-logo{
-
-display:flex;
-align-items:center;
-justify-content:center;
-gap:15px;
-
-}
+/* =====================================
+   FleetDash Logo
+   Black + Wine Luxury Theme
+===================================== */
 
 
-.fleet-icon{
+.fleet-logo {
 
-height:65px;
-width:65px;
+    display:flex;
 
-border-radius:18px;
+    align-items:center;
 
-background:
-linear-gradient(
-135deg,
-#2563eb,
-#06b6d4
-);
+    justify-content:center;
 
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-
-color:white;
-
-font-size:32px;
-
-
-box-shadow:
-0 15px 30px rgba(37,99,235,.35);
-
+    gap:15px;
 
 }
 
 
 
-.fleet-brand h1{
+/* Truck Icon Box */
 
-margin:0;
+.fleet-icon {
 
-font-size:32px;
 
-font-weight:700;
+    height:70px;
 
-color:#0f172a;
+    width:70px;
 
-letter-spacing:1px;
+
+    border-radius:20px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #7B112C,
+        #C2185B
+    );
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    color:white;
+
+
+    font-size:34px;
+
+
+    box-shadow:
+
+    0 12px 30px rgba(194,24,91,.45);
+
 
 }
 
 
 
-.fleet-brand p{
+/* FleetDash Text */
 
-margin:5px 0 0;
+.fleet-brand h1 {
 
-font-size:14px;
 
-color:#64748b;
+    margin:0;
+
+
+    font-size:34px;
+
+
+    font-weight:800;
+
+
+    color:#FFFFFF;
+
+
+    letter-spacing:1px;
+
+
+}
+
+
+
+/* Subtitle */
+
+.fleet-brand p {
+
+
+    margin:5px 0 0;
+
+
+    font-size:14px;
+
+
+    color:#CFCFCF;
+
+
+}
+
+
+
+/* Hover Effect */
+
+.fleet-logo:hover .fleet-icon {
+
+
+    transform:translateY(-3px);
+
+
+    box-shadow:
+
+    0 18px 40px rgba(194,24,91,.55);
+
+
+    transition:.3s;
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:550px){
+
+
+.fleet-icon {
+
+
+    height:60px;
+
+    width:60px;
+
+    font-size:28px;
+
+}
+
+
+
+.fleet-brand h1 {
+
+
+    font-size:28px;
+
+}
+
 
 }
