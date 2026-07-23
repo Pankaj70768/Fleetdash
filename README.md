@@ -32,8 +32,8 @@ Other Tools:
 | Name | Role |
 |------|------|
 | Pankaj | Database |
-| ... | Frontend |
-| ... | Backend |
+| Aditi Koparde| Frontend |
+| Sarupuru Chakradhar | Backend |
 
 ## 🗄️ Database Design
 
