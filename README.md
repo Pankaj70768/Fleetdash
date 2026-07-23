@@ -1,15 +1,46 @@
-# Fleetdash
-FleetDash – A collaborative fleet management system developed using GitHub for team-based development.
-# FleetDash Database
+# 🚗 FleetDash
 
-Contains:
-- Database Schema
-- Sample Data
-- Future Database Scripts
-## Database
+> Fleet Management System for tracking vehicles, drivers, trips, fuel consumption, maintenance, and analytics.
 
-- MongoDB
-- Mongoose
+## 📌 Overview
 
-Connection file:
-database/config/db.js
+## ✨ Features
+- Vehicle Management
+- Driver Management
+- Trip Tracking
+- Fuel Management
+- Maintenance Scheduling
+- Dashboard & Analytics
+- Role-Based Authentication
+- Reports
+
+## 🛠️ Tech Stack
+Frontend:
+Backend:
+Database:
+Other Tools:
+
+## 📂 Project Structure
+
+## ⚙️ Installation
+
+## 🚀 Getting Started
+
+## 📸 Screenshots
+
+## 👥 Team Members
+| Name | Role |
+|------|------|
+| Pankaj | Database |
+| ... | Frontend |
+| ... | Backend |
+
+## 🗄️ Database Design
+
+## 🔄 Workflow
+
+## Future Enhancements
+
+## 🤝 Contributing
+
+## 📄 License
