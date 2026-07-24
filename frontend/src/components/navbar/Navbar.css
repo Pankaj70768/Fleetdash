@@ -1,141 +1,218 @@
-.navbar{
+/* =====================================
+   Navbar
+   Black + Wine Theme
+===================================== */
+
+
+.navbar {
+
 
 height:80px;
 
-background:white;
 
-border-bottom:1px solid #e2e8f0;
+background:
+
+rgba(15,15,15,.95);
+
+
+
+border-bottom:
+
+1px solid rgba(194,24,91,.2);
+
+
 
 display:flex;
 
+
 align-items:center;
+
 
 justify-content:space-between;
 
+
 padding:0 40px;
 
+
 }
 
 
 
-.nav-left h3{
+/* Left */
+
+
+.nav-left h3 {
+
 
 font-size:22px;
 
-color:#0f172a;
-
-margin:0;
-
-}
-
-
-
-.nav-left p{
-
-margin-top:5px;
-
-font-size:14px;
-
-color:#64748b;
-
-}
-
-
-
-.nav-right{
-
-display:flex;
-
-align-items:center;
-
-gap:25px;
-
-}
-
-
-
-.notification{
-
-position:relative;
-
-font-size:22px;
-
-color:#475569;
-
-cursor:pointer;
-
-}
-
-
-
-.notification span{
-
-position:absolute;
-
-top:-8px;
-
-right:-10px;
-
-background:#ef4444;
 
 color:white;
 
-font-size:11px;
-
-height:18px;
-
-width:18px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-border-radius:50%;
-
-}
-
-
-
-.profile{
-
-display:flex;
-
-align-items:center;
-
-gap:12px;
-
-}
-
-
-
-.profile svg{
-
-font-size:38px;
-
-color:#64748b;
-
-}
-
-
-
-.profile h4{
 
 margin:0;
 
-color:#0f172a;
 
 }
 
 
 
-.profile p{
+.nav-left p {
+
+
+margin-top:5px;
+
+
+font-size:14px;
+
+
+color:#AAAAAA;
+
+
+}
+
+
+
+/* Right */
+
+
+.nav-right {
+
+
+display:flex;
+
+
+align-items:center;
+
+
+gap:25px;
+
+
+}
+
+
+
+/* Notification */
+
+
+.notification {
+
+
+position:relative;
+
+
+font-size:22px;
+
+
+color:#FF4D7D;
+
+
+cursor:pointer;
+
+
+}
+
+
+
+.notification span {
+
+
+position:absolute;
+
+
+top:-8px;
+
+
+right:-10px;
+
+
+
+background:#C2185B;
+
+
+color:white;
+
+
+font-size:11px;
+
+
+height:18px;
+
+
+width:18px;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+border-radius:50%;
+
+
+}
+
+
+
+/* Profile */
+
+
+.profile {
+
+
+display:flex;
+
+
+align-items:center;
+
+
+gap:12px;
+
+
+}
+
+
+
+.profile svg {
+
+
+font-size:38px;
+
+
+color:#FF4D7D;
+
+
+}
+
+
+
+.profile h4 {
+
+
+margin:0;
+
+
+color:white;
+
+
+}
+
+
+
+.profile p {
+
 
 margin:3px 0 0;
 
+
 font-size:13px;
 
-color:#64748b;
+
+color:#AAAAAA;
+
 
 }

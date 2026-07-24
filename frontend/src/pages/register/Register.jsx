@@ -16,7 +16,6 @@ function Register() {
 
     name: "",
     email: "",
-    phone: "",
     password: "",
 
   });
@@ -60,23 +59,7 @@ function Register() {
 
 
 
-    else if (name === "phone") {
-
-
-      const onlyNumbers = value.replace(/\D/g, "").slice(0,10);
-
-
-      setFormData({
-
-        ...formData,
-
-        phone: onlyNumbers,
-
-      });
-
-
-    }
-
+   
 
 
     else {
@@ -135,19 +118,7 @@ function Register() {
 
 
 
-    if(formData.phone.trim()===""){
-
-      newErrors.phone="Phone number is required.";
-
-    }
-
-
-    else if(!/^[0-9]{10}$/.test(formData.phone)){
-
-
-      newErrors.phone="Phone number must be exactly 10 digits.";
-
-    }
+    
 
 
 
@@ -198,7 +169,7 @@ function Register() {
 
 
 
-      await API.post("/register", formData);
+      await API.post("/auth/register", formData);
 
 
 
@@ -313,24 +284,6 @@ onChange={handleChange}
 
 
 
-<input
-
-type="text"
-
-placeholder="Mobile Number"
-
-name="phone"
-
-value={formData.phone}
-
-maxLength={10}
-
-onChange={handleChange}
-
-/>
-
-
-{errors.phone && <p className="error">{errors.phone}</p>}
 
 
 

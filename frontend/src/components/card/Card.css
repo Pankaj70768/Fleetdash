@@ -1,91 +1,168 @@
+/* =====================================
+   Dashboard Cards
+   Wine Glass Style
+===================================== */
+
+
 .stat-card {
 
 
-background:white;
+background:
+
+rgba(25,25,25,.95);
+
 
 padding:26px;
 
-border-radius:18px;
 
-border:1px solid #e2e8f0;
+border-radius:20px;
 
-transition:0.3s;
+
+border:
+
+1px solid rgba(194,24,91,.25);
+
+
+
+transition:.35s;
+
+
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.35);
+
 
 
 }
 
 
-.stat-card:hover{
+
+.stat-card:hover {
 
 
-transform:translateY(-5px);
+transform:translateY(-6px);
 
-box-shadow:0 15px 30px rgba(15,23,42,0.12);
+
+
+box-shadow:
+
+
+0 20px 45px rgba(194,24,91,.25);
+
 
 
 }
 
 
 
-.stat-card h3{
+/* Title */
+
+.stat-card h3 {
 
 
 font-size:14px;
 
+
 font-weight:600;
 
-color:#64748b;
+
+color:#CFCFCF;
+
 
 text-transform:uppercase;
 
-letter-spacing:0.5px;
+
+letter-spacing:.5px;
 
 
 }
 
 
 
-.stat-card p{
+/* Number */
+
+
+.stat-card p {
 
 
 margin-top:18px;
 
+
 font-size:36px;
+
 
 font-weight:800;
 
-color:#0f172a;
+
+color:white;
 
 
 }
 
-.card-icon{
 
-width:40px;
 
-height:40px;
+/* Icon */
+
+
+.card-icon {
+
+
+width:45px;
+
+
+height:45px;
+
 
 display:flex;
 
+
 align-items:center;
+
 
 justify-content:center;
 
-background:#ecfdf5;
 
-color:#059669;
 
-border-radius:12px;
+background:
+
+
+linear-gradient(
+135deg,
+#7B112C,
+#C2185B
+);
+
+
+
+color:white;
+
+
+border-radius:14px;
+
 
 margin-bottom:20px;
+
+
+
+box-shadow:
+
+
+0 10px 25px rgba(194,24,91,.35);
+
+
 
 }
 
 
-.stat-card span{
+
+.stat-card span {
+
 
 font-size:13px;
 
-color:#94a3b8;
+
+color:#999;
+
 
 }

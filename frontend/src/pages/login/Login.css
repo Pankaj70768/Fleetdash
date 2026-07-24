@@ -1,258 +1,338 @@
-/* Background */
+/* ==========================================
+   FleetDash Login - Luxury Black & Wine Theme
+============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+
+    background:
+        radial-gradient(circle at top left, rgba(123,17,44,.25), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(166,30,77,.18), transparent 45%),
+        linear-gradient(135deg, #090909 0%, #150811 45%, #2B0A18 100%);
+}
+
+/* ================= Card ================= */
+
+.auth-card {
+    width: 460px;
+    background: rgba(22,22,22,.94);
+
+    backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(123,17,44,.35);
+
+    border-radius: 28px;
+
+    padding: 45px;
+
+    text-align: center;
+
+    animation: fadeUp .7s ease;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.45),
+        0 0 35px rgba(123,17,44,.15);
+}
+
+/* ================= Logo ================= */
+
+.logo-wrapper {
+    width: 92px;
+    height: 92px;
+
+    margin: auto;
+
+    border-radius: 24px;
+
+    background: linear-gradient(135deg,#7B112C,#B21F52);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 0 25px rgba(166,30,77,.45);
+}
+
+.logo-wrapper img {
+    width: 52px;
+    height: 52px;
+}
+
+/* ================= Brand ================= */
+
+.brand-title {
+    margin-top: 18px;
+
+    font-size: 40px;
+
+    font-weight: 700;
+
+    color: #FFFFFF;
+
+    letter-spacing: .6px;
+}
+
+.brand-subtitle {
+    margin-top: 6px;
+
+    color: #BDBDBD;
+
+    font-size: 15px;
+}
+
+/* ================= Welcome ================= */
+
+.auth-card h2 {
+
+    margin-top: 35px;
+
+    font-size: 46px;
+
+    color: white;
+
+    font-weight: 700;
+}
+
+.description {
+
+    margin-top: 12px;
+
+    color: #CFCFCF;
+
+    font-size: 18px;
+
+    margin-bottom: 35px;
+}
+
+/* ================= Form ================= */
+
+.auth-card form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+/* ================= Inputs ================= */
+
+.auth-card input {
+
+    width: 100%;
+
+    padding: 17px 18px;
+
+    border-radius: 14px;
+
+    border: 1px solid #3B3B3B;
+
+    background: #252525;
+
+    color: white;
+
+    font-size: 16px;
+
+    transition: .35s;
+}
+
+.auth-card input::placeholder {
+
+    color: #9A9A9A;
+}
+
+.auth-card input:focus {
+
+    outline: none;
+
+    border-color: #A61E4D;
+
+    box-shadow: 0 0 18px rgba(166,30,77,.35);
+}
+
+/* ================= Error ================= */
+
+.error {
+
+    text-align: left;
+
+    color: #FF6B81;
+
+    font-size: 13px;
+
+    margin-top: -8px;
+
+    margin-left: 4px;
+}
+
+/* ================= Button ================= */
+
+.auth-card button {
+
+    margin-top: 12px;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #7B112C,
+        #A61E4D
+    );
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .35s;
+}
+
+.auth-card button:hover {
+
+    transform: translateY(-3px);
+
+    background: linear-gradient(
+        135deg,
+        #91183B,
+        #C1225D
+    );
+
+    box-shadow:
+        0 12px 28px rgba(166,30,77,.45);
+}
+
+.auth-card button:active {
+
+    transform: scale(.98);
+}
+
+/* ================= Bottom Text ================= */
+
+.switch {
+
+    margin-top: 30px;
+
+    color: #C8C8C8;
+
+    font-size: 16px;
+}
+
+.switch a {
+
+    color: #FF3F72;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.switch a:hover {
+
+    color: #FF7296;
+
+    text-decoration: underline;
+}
+
+/* ================= Animation ================= */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(40px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:550px){
 
 .auth-page{
 
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:30px;
-
-    background:linear-gradient(
-        135deg,
-        #0f172a,
-        #1d4ed8
-    );
+padding:20px;
 
 }
-
-
-/* Card */
 
 .auth-card{
 
-    width:430px;
+width:100%;
 
-    background:rgba(255,255,255,.96);
-
-    padding:45px;
-
-    border-radius:25px;
-
-    box-shadow:0 25px 60px rgba(0,0,0,.25);
-
-    animation:slideUp .7s ease;
-
-    text-align:center;
+padding:35px 25px;
 
 }
 
+.brand-title{
 
-/* Heading */
+font-size:32px;
+
+}
 
 .auth-card h2{
 
-    margin-top:30px;
-
-    margin-bottom:8px;
-
-    font-size:30px;
-
-    font-weight:700;
-
-    color:#0f172a;
+font-size:36px;
 
 }
-
-
-/* Description */
 
 .description{
 
-    color:#64748b;
-
-    margin-bottom:30px;
-
-    font-size:15px;
+font-size:16px;
 
 }
 
+.logo-wrapper{
 
-/* Form */
+width:78px;
 
-.auth-card form{
-
-    display:flex;
-
-    flex-direction:column;
+height:78px;
 
 }
 
+.logo-wrapper img{
 
-/* Inputs */
+width:44px;
+
+height:44px;
+
+}
 
 .auth-card input{
 
-    width:100%;
-
-    padding:15px;
-
-    margin-top:14px;
-
-    border:1px solid #cbd5e1;
-
-    border-radius:12px;
-
-    font-size:15px;
-
-    outline:none;
-
-    transition:.3s;
-
-    box-sizing:border-box;
+padding:15px;
 
 }
-
-
-.auth-card input:focus{
-
-    border-color:#2563eb;
-
-    box-shadow:0 0 0 4px rgba(37,99,235,.15);
-
-}
-
-
-/* Error */
-
-.error{
-
-    color:#dc2626;
-
-    font-size:13px;
-
-    text-align:left;
-
-    margin-top:5px;
-
-    margin-bottom:2px;
-
-    padding-left:5px;
-
-}
-
-
-/* Button */
 
 .auth-card button{
 
-    width:100%;
-
-    padding:15px;
-
-    margin-top:28px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:linear-gradient(
-        135deg,
-        #2563eb,
-        #06b6d4
-    );
-
-    color:white;
-
-    font-size:16px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-
-.auth-card button:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:0 10px 25px rgba(37,99,235,.35);
-
-}
-
-
-/* Bottom Text */
-
-.switch{
-
-    margin-top:28px;
-
-    color:#64748b;
-
-    font-size:15px;
-
-}
-
-
-.switch a{
-
-    color:#2563eb;
-
-    font-weight:600;
-
-    text-decoration:none;
-
-    margin-left:6px;
-
-    transition:.3s;
-
-}
-
-
-.switch a:hover{
-
-    color:#1d4ed8;
-
-    text-decoration:underline;
-
-}
-
-
-/* Animation */
-
-@keyframes slideUp{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(40px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-
-/* Responsive */
-
-@media(max-width:500px){
-
-.auth-card{
-
-    width:95%;
-
-    padding:30px;
-
-}
-
-.auth-card h2{
-
-    font-size:26px;
+padding:15px;
 
 }
 
