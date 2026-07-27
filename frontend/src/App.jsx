@@ -10,6 +10,7 @@ import Alerts from "./pages/alerts/Alerts";
 import Reports from "./pages/reports/Reports";
 import Settings from "./pages/settings/Settings";
 import Profile from "./pages/profile/Profile";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App(){
 
@@ -40,42 +41,70 @@ element={<Register/>}
 
 <Route
 path="/dashboard"
-element={<Dashboard/>}
+element={
+    <ProtectedRoute>
+        <Dashboard />
+    </ProtectedRoute>
+}
 />
 
 
 <Route
 path="/vehicles"
-element={<Vehicles/>}
+element={
+    <ProtectedRoute>
+        <Vehicles />
+    </ProtectedRoute>
+}
 />
 
 
 <Route
 path="/live-map"
-element={<LiveMap/>}
+element={
+    <ProtectedRoute>
+        <LiveMap />
+    </ProtectedRoute>
+}
 />
 
 
 <Route
 path="/alerts"
-element={<Alerts/>}
+element={
+    <ProtectedRoute>
+        <Alerts />
+    </ProtectedRoute>
+}
 />
 
 
 <Route
 path="/reports"
-element={<Reports/>}
+element={
+    <ProtectedRoute>
+        <Reports />
+    </ProtectedRoute>
+}
 />
 
 
 <Route
 path="/settings"
-element={<Settings/>}
+element={
+    <ProtectedRoute>
+        <Settings />
+    </ProtectedRoute>
+}
 />
 
 <Route
 path="/profile"
-element={<Profile/>}
+element={
+    <ProtectedRoute>
+        <Profile />
+    </ProtectedRoute>
+}
 />
 
 
