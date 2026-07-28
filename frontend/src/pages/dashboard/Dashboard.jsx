@@ -4,9 +4,42 @@ import Alerts from "../../components/alerts/Alerts";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Table from "../../components/table/Table";
+import { useEffect, useState } from "react";
+import API from "../../services/api";
+
 
 
 function Dashboard(){
+    const [dashboardData, setDashboardData] = useState({
+    totalVehicles: 0,
+    activeVehicles: 0,
+    maintenanceVehicles: 0,
+    totalDrivers: 0,
+    availableDrivers: 0,
+    driversOnTrip: 0
+});
+
+useEffect(() => {
+
+    const fetchDashboard = async () => {
+
+        try {
+
+            const response = await API.get("/dashboard");
+
+            setDashboardData(response.data.dashboard);
+
+        } catch (error) {
+
+            console.error("Dashboard API Error:", error);
+
+        }
+
+    };
+
+    fetchDashboard();
+
+}, []);
 
 return(
 
@@ -36,25 +69,25 @@ FleetDash Dashboard
 
 <Card
 title="Total Vehicles"
-value="120"
+value={dashboardData.totalVehicles}
 />
 
 
 <Card
 title="Active Vehicles"
-value="95"
+value={dashboardData.activeVehicles}
 />
 
 
 <Card
-title="Idle Vehicles"
-value="15"
+title="Maintenance Vehicles"
+value={dashboardData.maintenanceVehicles}
 />
 
 
 <Card
-title="Alerts"
-value="10"
+title="Total Drivers"
+value={dashboardData.totalDrivers}
 />
 
 
