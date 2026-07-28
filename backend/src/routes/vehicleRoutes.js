@@ -23,7 +23,6 @@ router.put("/:id", protect, updateVehicle);
 router.delete(
     "/:id",
     protect,
-    authorize("Admin"),
     deleteVehicle
 );
 module.exports = router;      
