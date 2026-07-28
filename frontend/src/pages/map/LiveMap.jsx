@@ -1,36 +1,140 @@
 import "./LiveMap.css";
+import { useEffect, useState } from "react";
+import api from "../../services/api";
+
+import {
+    MapContainer,
+    TileLayer,
+    Marker,
+    Popup
+} from "react-leaflet";
+
+import "leaflet/dist/leaflet.css";
+
+import L from "leaflet";
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
 
-function LiveMap(){
+delete L.Icon.Default.prototype._getIconUrl;
 
-return(
-
-<div className="page-container">
-
-<h1>Live Map</h1>
-
-
-<div className="map-box">
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2x,
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow
+});
 
 
-<div className="marker">
+function LiveMap() {
 
-🚛
-
-</div>
-
-
-Vehicle locations will appear here.
+    const [locations, setLocations] = useState([]);
+    const [loading, setLoading] = useState(true);
 
 
-</div>
+    useEffect(() => {
+
+        const fetchLocations = async () => {
+
+            try {
+
+                const response = await api.get("/location");
+
+                setLocations(response.data.data);
+
+            } catch (error) {
+
+                console.error(
+                    "Failed to fetch locations:",
+                    error
+                );
+
+            } finally {
+
+                setLoading(false);
+
+            }
+
+        };
+
+        fetchLocations();
+
+    }, []);
 
 
-</div>
+    if (loading) {
 
-)
+        return (
+            <div className="page-container">
+                <h1>Live Map</h1>
+                <p>Loading vehicle locations...</p>
+            </div>
+        );
+
+    }
+
+
+    return (
+
+        <div className="page-container">
+
+            <h1>Live Map</h1>
+
+            <p>
+                Tracking {locations.length} vehicle location(s)
+            </p>
+
+            <MapContainer
+                center={[16.3067, 80.4365]}
+                zoom={7}
+                className="fleet-map"
+            >
+
+                <TileLayer
+                    attribution="&copy; OpenStreetMap contributors"
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+
+
+                {locations.map((location) => (
+
+                    <Marker
+                        key={location._id}
+                        position={[
+                            location.latitude,
+                            location.longitude
+                        ]}
+                    >
+
+                        <Popup>
+
+                            <strong>
+                                {location.vehicle?.vehicleNumber ||
+                                    "Vehicle"}
+                            </strong>
+
+                            <br />
+
+                            Driver:{" "}
+                            {location.vehicle?.driverName ||
+                                "Unknown"}
+
+                            <br />
+
+                            Speed: {location.speed} km/h
+
+                        </Popup>
+
+                    </Marker>
+
+                ))}
+
+            </MapContainer>
+
+        </div>
+
+    );
 
 }
-
 
 export default LiveMap;
