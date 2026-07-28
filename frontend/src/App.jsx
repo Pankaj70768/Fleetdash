@@ -11,6 +11,8 @@ import Reports from "./pages/reports/Reports";
 import Settings from "./pages/settings/Settings";
 import Profile from "./pages/profile/Profile";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import Drivers from "./pages/drivers/Drivers";
+import Trips from "./pages/trips/Trips";
 
 function App(){
 
@@ -107,7 +109,24 @@ element={
 }
 />
 
+<Route
+    path="/drivers"
+    element={
+        <ProtectedRoute>
+            <Drivers />
+        </ProtectedRoute>
+    }
+/>
 
+
+<Route
+    path="/trips"
+    element={
+        <ProtectedRoute>
+            <Trips />
+        </ProtectedRoute>
+    }
+/>
 </Routes>
 
 </BrowserRouter>

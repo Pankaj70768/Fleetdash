@@ -43,6 +43,15 @@ Dashboard
 Vehicles
 </NavLink>
 
+<NavLink to="/drivers">
+Drivers
+</NavLink>
+
+
+<NavLink to="/trips">
+Trips
+</NavLink>
+
 
 <NavLink to="/live-map">
 Live Map
