@@ -1,0 +1,168 @@
+/* =====================================
+   Dashboard Cards
+   Wine Glass Style
+===================================== */
+
+
+.stat-card {
+
+
+background:
+
+rgba(25,25,25,.95);
+
+
+padding:26px;
+
+
+border-radius:20px;
+
+
+border:
+
+1px solid rgba(194,24,91,.25);
+
+
+
+transition:.35s;
+
+
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.35);
+
+
+
+}
+
+
+
+.stat-card:hover {
+
+
+transform:translateY(-6px);
+
+
+
+box-shadow:
+
+
+0 20px 45px rgba(194,24,91,.25);
+
+
+
+}
+
+
+
+/* Title */
+
+.stat-card h3 {
+
+
+font-size:14px;
+
+
+font-weight:600;
+
+
+color:#CFCFCF;
+
+
+text-transform:uppercase;
+
+
+letter-spacing:.5px;
+
+
+}
+
+
+
+/* Number */
+
+
+.stat-card p {
+
+
+margin-top:18px;
+
+
+font-size:36px;
+
+
+font-weight:800;
+
+
+color:white;
+
+
+}
+
+
+
+/* Icon */
+
+
+.card-icon {
+
+
+width:45px;
+
+
+height:45px;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+
+background:
+
+
+linear-gradient(
+135deg,
+#7B112C,
+#C2185B
+);
+
+
+
+color:white;
+
+
+border-radius:14px;
+
+
+margin-bottom:20px;
+
+
+
+box-shadow:
+
+
+0 10px 25px rgba(194,24,91,.35);
+
+
+
+}
+
+
+
+.stat-card span {
+
+
+font-size:13px;
+
+
+color:#999;
+
+
+}

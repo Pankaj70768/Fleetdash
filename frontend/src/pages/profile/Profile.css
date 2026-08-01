@@ -1,0 +1,149 @@
+/* =====================================
+   Profile page
+   Black + Wine Theme
+===================================== */
+
+.profile-card {
+
+    background: rgba(22,22,22,.92);
+
+    backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(194,24,91,.22);
+
+    padding: 30px;
+
+    border-radius: 22px;
+
+    width: 380px;
+
+    max-width: 100%;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.35);
+}
+
+.profile-avatar {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 26px;
+
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.profile-avatar svg {
+
+    font-size: 56px;
+
+    color: #FF4D7D;
+}
+
+.profile-avatar h3 {
+
+    color: white;
+
+    font-size: 18px;
+
+    margin: 0;
+}
+
+.profile-avatar p {
+
+    color: #A8A29E;
+
+    font-size: 13.5px;
+
+    margin-top: 3px;
+}
+
+.profile-card label {
+
+    display: block;
+
+    margin-top: 16px;
+
+    margin-bottom: 6px;
+
+    color: #A8A29E;
+
+    font-size: 13.5px;
+
+    font-weight: 600;
+}
+
+.profile-card input {
+
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border-radius: 12px;
+
+    border: 1px solid #3B3B3B;
+
+    background: #202020;
+
+    color: white;
+
+    font-size: 14.5px;
+
+    box-sizing: border-box;
+
+    outline: none;
+
+    transition: .25s;
+}
+
+.profile-card input:focus {
+
+    border-color: #A61E4D;
+
+    box-shadow: 0 0 0 4px rgba(166,30,77,.18);
+}
+
+.profile-card input:disabled {
+
+    color: #8A8A8A;
+
+    cursor: not-allowed;
+}
+
+.profile-card button {
+
+    margin-top: 24px;
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #7B112C, #A61E4D);
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    box-shadow: 0 10px 22px rgba(166,30,77,.3);
+}
+
+.profile-card button:hover {
+
+    transform: translateY(-2px);
+
+    background: linear-gradient(135deg, #91183B, #C1225D);
+}

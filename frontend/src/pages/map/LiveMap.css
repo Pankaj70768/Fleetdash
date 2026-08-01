@@ -1,0 +1,97 @@
+/* =====================================
+   Live Map page
+   Black + Wine Theme
+===================================== */
+
+.map-panel {
+
+    background: rgba(22,22,22,.92);
+
+    border: 1px solid rgba(194,24,91,.22);
+
+    border-radius: 22px;
+
+    padding: 14px;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.35);
+}
+
+.fleet-map {
+
+    width: 100%;
+
+    height: 560px;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+/* Loading state (kept simple, no sidebar layout shift) */
+
+.map-loading {
+
+    height: 400px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(22,22,22,.92);
+
+    border: 1px solid rgba(194,24,91,.22);
+
+    border-radius: 22px;
+}
+
+.map-spinner {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    border: 4px solid rgba(194,24,91,.2);
+
+    border-top-color: #C2185B;
+
+    animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+
+    to { transform: rotate(360deg); }
+}
+
+/* Leaflet popup restyle to match theme */
+
+.leaflet-popup-content-wrapper {
+
+    background: #161616;
+
+    color: white;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(194,24,91,.35);
+}
+
+.leaflet-popup-content {
+
+    font-size: 13.5px;
+
+    line-height: 1.6;
+}
+
+.leaflet-popup-tip {
+
+    background: #161616;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+
+    color: #CFCFCF;
+}
