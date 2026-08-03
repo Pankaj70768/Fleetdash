@@ -23,6 +23,8 @@ function Profile() {
                 setEmail(response.data.data.email);
                 setRole(response.data.data.role);
 
+                console.log("Profile Data:", response.data.data);
+
             } catch (error) {
 
                 console.error("Failed to fetch profile:", error);
@@ -71,18 +73,30 @@ function Profile() {
 
 
     if (loading) {
+
         return (
+
             <Layout>
+
                 <div className="page-container">
+
                     <div className="page-head">
+
                         <div>
                             <h1>Profile</h1>
-                            <p className="page-sub">Loading your profile...</p>
+                            <p className="page-sub">
+                                Loading your profile...
+                            </p>
                         </div>
+
                     </div>
+
                 </div>
+
             </Layout>
+
         );
+
     }
 
 
@@ -90,66 +104,89 @@ function Profile() {
 
         <Layout>
 
-        <div className="page-container">
+            <div className="page-container">
 
-            <div className="page-head">
+                <div className="page-head">
 
-                <div>
-                    <h1>Profile</h1>
-                    <p className="page-sub">View and update your account details</p>
+                    <div>
+
+                        <h1>Profile</h1>
+
+                        <p className="page-sub">
+                            View and update your account details
+                        </p>
+
+                    </div>
+
                 </div>
+
+
+                <div className="profile-wrapper">
+
+                    <form
+                        className="profile-card"
+                        onSubmit={handleUpdateProfile}
+                    >
+
+                        <div className="profile-avatar">
+
+                            <FaUserCircle />
+
+                            <div>
+
+                                <h3>
+                                    {name || "Your Name"}
+                                </h3>
+
+                                <p>
+                                    ROLE TEST: {role}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <label>Name</label>
+
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e)=>setName(e.target.value)}
+                            required
+                        />
+
+
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e)=>setEmail(e.target.value)}
+                            required
+                        />
+
+
+                        <label>Role</label>
+
+                        <input
+                            type="text"
+                            value={role}
+                            readOnly
+                        />
+
+
+                        <button type="submit">
+                            Save Changes
+                        </button>
+
+
+                    </form>
+
+                </div>
+
 
             </div>
-
-            <form
-                className="profile-card"
-                onSubmit={handleUpdateProfile}
-            >
-
-                <div className="profile-avatar">
-                    <FaUserCircle />
-                    <div>
-                        <h3>{name || "Your Name"}</h3>
-                        <p>{role || "Role"}</p>
-                    </div>
-                </div>
-
-                <label>Name</label>
-
-                <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-
-
-                <label>Email</label>
-
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-
-
-                <label>Role</label>
-
-                <input
-                    type="text"
-                    value={role}
-                    disabled
-                />
-
-
-                <button type="submit">
-                    Save Changes
-                </button>
-
-            </form>
-
-        </div>
 
         </Layout>
 

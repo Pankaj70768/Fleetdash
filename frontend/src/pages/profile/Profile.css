@@ -3,6 +3,17 @@
    Black + Wine Theme
 ===================================== */
 
+.profile-wrapper {
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
 .profile-card {
 
     background: rgba(22,22,22,.92);
