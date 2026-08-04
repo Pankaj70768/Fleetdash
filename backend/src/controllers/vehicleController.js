@@ -1,9 +1,11 @@
 const Vehicle = require("../models/vehicleModel");
+const { getIO } = require("../socket/socket");
 
 // Create a new vehicle
 const createVehicle = async (req, res) => {
   try {
     const vehicle = await Vehicle.create(req.body);
+    getIO().emit("vehicleCreated", vehicle);
 
     res.status(201).json({
       success: true,
@@ -97,6 +99,7 @@ const updateVehicle = async (req, res) => {
             });
 
         }
+        getIO().emit("vehicleUpdated", vehicle);
 
         res.status(200).json({
 
@@ -140,6 +143,9 @@ const deleteVehicle = async (req, res) => {
             });
 
         }
+        getIO().emit("vehicleDeleted", {
+    id: req.params.id,
+});
 
         res.status(200).json({
 
