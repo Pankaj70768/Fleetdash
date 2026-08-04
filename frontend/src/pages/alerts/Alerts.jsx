@@ -1,6 +1,8 @@
 import "./Alerts.css";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import Layout from "../../components/layout/Layout";
+import { FaBell, FaCheckCircle } from "react-icons/fa";
 
 function Alerts() {
 
@@ -31,45 +33,71 @@ function Alerts() {
 
     return (
 
-        <div className="alerts-container">
+        <Layout>
 
-            <h2>🚨 Fleet Alerts</h2>
+        <div className="page-container">
 
-            <p>{alerts.length} Active</p>
+            <div className="page-head">
 
-            {alerts.length === 0 && (
-                <p>No alerts found.</p>
-            )}
+                <div>
+                    <h1>Alerts</h1>
+                    <p className="page-sub">Stay on top of fleet issues that need your attention</p>
+                </div>
 
-            {alerts.map((alert) => (
+                <span className="page-pill">
+                    <FaBell /> {alerts.length} Active
+                </span>
 
-                <div
-                    className="alert-card"
-                    key={alert._id}
-                >
+            </div>
 
-                    <h3>{alert.title}</h3>
+            {alerts.length === 0 ? (
 
-                    <p>
-                        <strong>Message:</strong> {alert.message}
-                    </p>
+                <div className="empty-state">
+                    <FaCheckCircle />
+                    <p>All clear — no active alerts right now.</p>
+                </div>
 
-                    <p>
-                        <strong>Time:</strong>{" "}
-                        {new Date(alert.createdAt).toLocaleString()}
-                    </p>
+            ) : (
 
-                    <span
-                        className={`severity ${alert.type.toLowerCase()}`}
-                    >
-                        {alert.type}
-                    </span>
+                <div className="alerts-list">
+
+                    {alerts.map((alert) => (
+
+                        <div
+                            className="alert-entry"
+                            key={alert._id}
+                        >
+
+                            <div className={`alert-marker ${alert.type.toLowerCase()}`} />
+
+                            <div className="alert-body">
+
+                                <div className="alert-body-head">
+                                    <h3>{alert.title}</h3>
+                                    <span className={`alert-badge ${alert.type.toLowerCase()}`}>
+                                        {alert.type}
+                                    </span>
+                                </div>
+
+                                <p>{alert.message}</p>
+
+                                <span className="alert-time">
+                                    {new Date(alert.createdAt).toLocaleString()}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    ))}
 
                 </div>
 
-            ))}
+            )}
 
         </div>
+
+        </Layout>
 
     );
 

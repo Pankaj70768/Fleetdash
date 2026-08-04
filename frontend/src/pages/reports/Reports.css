@@ -1,10 +1,106 @@
-.page-container{
-    padding:20px;
+/* =====================================
+   Reports page
+   Black + Wine Theme
+===================================== */
+
+.page-container form {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 }
 
-.page-card{
-    background:white;
-    padding:25px;
-    margin-top:20px;
-    border-radius:12px;
+.report-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+    gap: 20px;
+}
+
+.report-item {
+
+    background: rgba(22,22,22,.92);
+
+    border: 1px solid rgba(194,24,91,.22);
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    transition: .3s;
+}
+
+.report-item:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 15px 30px rgba(194,24,91,.2);
+}
+
+.report-item-head {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+.report-item h3 {
+
+    color: white;
+
+    font-size: 17px;
+
+    margin: 0;
+}
+
+.report-item p {
+
+    color: #CFCFCF;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    margin-bottom: 16px;
+
+    min-height: 21px;
+}
+
+.report-type {
+
+    flex-shrink: 0;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    font-size: 11.5px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: .3px;
+
+    background: linear-gradient(135deg, #7B112C, #C2185B);
+
+    color: white;
+}
+
+.report-date {
+
+    display: block;
+
+    color: #8A8A8A;
+
+    font-size: 12.5px;
+
+    border-top: 1px solid rgba(255,255,255,.08);
+
+    padding-top: 12px;
 }

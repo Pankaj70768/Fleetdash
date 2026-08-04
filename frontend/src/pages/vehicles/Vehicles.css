@@ -1,10 +1,7 @@
-.page-container {
-    padding: 20px;
-}
+/* Vehicles page - page-specific tweaks only.
+   Shared form / table / status / panel styling lives in
+   src/styles/shared.css so it stays consistent across pages. */
 
-.page-card {
-    margin-top: 20px;
-    padding: 25px;
-    background: white;
-    border-radius: 12px;
+.page-container form {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 }

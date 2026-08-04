@@ -1,6 +1,8 @@
 import "./Reports.css";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import Layout from "../../components/layout/Layout";
+import { FaFileAlt, FaClipboardList } from "react-icons/fa";
 
 function Reports() {
 
@@ -72,9 +74,28 @@ function Reports() {
 
     return (
 
+        <Layout>
+
         <div className="page-container">
 
-            <h1>Reports</h1>
+            <div className="page-head">
+
+                <div>
+                    <h1>Reports</h1>
+                    <p className="page-sub">Generate and review fleet performance reports</p>
+                </div>
+
+                <span className="page-pill">
+                    <FaFileAlt /> {reports.length} Generated
+                </span>
+
+            </div>
+
+            <div className="panel">
+
+            <h2 className="panel-title">
+                <FaFileAlt /> Create Report
+            </h2>
 
             <form onSubmit={handleCreateReport}>
 
@@ -108,49 +129,53 @@ function Reports() {
 
             </form>
 
+            </div>
 
-            <div className="page-card">
 
-                <h2>Generated Reports: {reports.length}</h2>
+            {reports.length === 0 ? (
 
-                {reports.length === 0 ? (
+                <div className="empty-state">
+                    <FaClipboardList />
+                    <p>No reports available. Create one above to get started.</p>
+                </div>
 
-                    <p>No reports available.</p>
+            ) : (
 
-                ) : (
+                <div className="report-grid">
 
-                    reports.map((report) => (
+                    {reports.map((report) => (
 
                         <div
                             key={report._id}
                             className="report-item"
                         >
 
-                            <h3>{report.reportName}</h3>
+                            <div className="report-item-head">
+                                <h3>{report.reportName}</h3>
+                                <span className={`report-type ${report.reportType.toLowerCase()}`}>
+                                    {report.reportType}
+                                </span>
+                            </div>
 
                             <p>
-                                <strong>Type:</strong> {report.reportType}
-                            </p>
-
-                            <p>
-                                <strong>Description:</strong>{" "}
                                 {report.description || "No description"}
                             </p>
 
-                            <p>
-                                <strong>Created:</strong>{" "}
+                            <span className="report-date">
                                 {new Date(report.createdAt).toLocaleString()}
-                            </p>
+                            </span>
 
                         </div>
 
-                    ))
+                    ))}
 
-                )}
+                </div>
 
-            </div>
+            )}
 
         </div>
+
+        </Layout>
 
     );
 

@@ -1,6 +1,8 @@
 import "./Profile.css";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import Layout from "../../components/layout/Layout";
+import { FaUserCircle } from "react-icons/fa";
 
 function Profile() {
 
@@ -20,6 +22,8 @@ function Profile() {
                 setName(response.data.data.name);
                 setEmail(response.data.data.email);
                 setRole(response.data.data.role);
+
+                console.log("Profile Data:", response.data.data);
 
             } catch (error) {
 
@@ -69,57 +73,122 @@ function Profile() {
 
 
     if (loading) {
-        return <p>Loading profile...</p>;
+
+        return (
+
+            <Layout>
+
+                <div className="page-container">
+
+                    <div className="page-head">
+
+                        <div>
+                            <h1>Profile</h1>
+                            <p className="page-sub">
+                                Loading your profile...
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </Layout>
+
+        );
+
     }
 
 
     return (
 
-        <div className="profile">
+        <Layout>
 
-            <h2>Profile</h2>
+            <div className="page-container">
 
-            <form
-                className="profile-card"
-                onSubmit={handleUpdateProfile}
-            >
+                <div className="page-head">
 
-                <label>Name</label>
+                    <div>
 
-                <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
+                        <h1>Profile</h1>
 
+                        <p className="page-sub">
+                            View and update your account details
+                        </p>
 
-                <label>Email</label>
+                    </div>
 
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
+                </div>
 
 
-                <label>Role</label>
+                <div className="profile-wrapper">
 
-                <input
-                    type="text"
-                    value={role}
-                    disabled
-                />
+                    <form
+                        className="profile-card"
+                        onSubmit={handleUpdateProfile}
+                    >
+
+                        <div className="profile-avatar">
+
+                            <FaUserCircle />
+
+                            <div>
+
+                                <h3>
+                                    {name || "Your Name"}
+                                </h3>
+
+                                <p>
+                                    ROLE TEST: {role}
+                                </p>
+
+                            </div>
+
+                        </div>
 
 
-                <button type="submit">
-                    Save Changes
-                </button>
+                        <label>Name</label>
 
-            </form>
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e)=>setName(e.target.value)}
+                            required
+                        />
 
-        </div>
+
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e)=>setEmail(e.target.value)}
+                            required
+                        />
+
+
+                        <label>Role</label>
+
+                        <input
+                            type="text"
+                            value={role}
+                            readOnly
+                        />
+
+
+                        <button type="submit">
+                            Save Changes
+                        </button>
+
+
+                    </form>
+
+                </div>
+
+
+            </div>
+
+        </Layout>
 
     );
 

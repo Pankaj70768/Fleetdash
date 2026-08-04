@@ -1,12 +1,89 @@
 import "./Navbar.css";
 import { FaBell, FaUserCircle } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "../../services/api";
 
 
 function Navbar(){
 
+    const navigate = useNavigate();
+
+
+    const [name, setName] = useState("");
+    const [role, setRole] = useState("");
+
+    const [openMenu, setOpenMenu] = useState(false);
+
+    const [openNotifications, setOpenNotifications] = useState(false);
+
+    const [notifications, setNotifications] = useState([]);
+
+
+
+    useEffect(() => {
+
+
+        const fetchProfile = async () => {
+
+            try {
+
+                const response = await api.get("/profile");
+
+                setName(response.data.data.name);
+                setRole(response.data.data.role);
+
+            } catch(error){
+
+                console.error(
+                    "Failed to fetch profile:",
+                    error
+                );
+
+            }
+
+        };
+
+
+
+        const fetchNotifications = async () => {
+
+            try {
+
+                const response = await api.get("/alerts");
+
+                setNotifications(
+                    response.data.data
+                );
+
+            } catch(error){
+
+                console.error(
+                    "Failed to fetch notifications:",
+                    error
+                );
+
+            }
+
+        };
+
+
+
+        fetchProfile();
+
+        fetchNotifications();
+
+
+    }, []);
+
+
+
+
+
 return(
 
 <div className="navbar">
+
 
 
 <div className="nav-left">
@@ -23,22 +100,114 @@ Manage your fleet performance and activities
 
 
 
+
+
 <div className="nav-right">
 
 
-<div className="notification">
+
+{/* Notification */}
+
+<div className="notification-wrapper">
+
+
+<div
+className="notification"
+onClick={() =>
+    setOpenNotifications(!openNotifications)
+}
+>
+
 
 <FaBell/>
 
+
 <span>
-3
+{notifications.length}
 </span>
+
 
 </div>
 
 
 
-<div className="profile">
+
+{
+openNotifications && (
+
+<div className="notification-dropdown">
+
+
+<h4>
+Notifications
+</h4>
+
+
+
+{
+
+notifications.length > 0 ? (
+
+
+notifications.map((alert,index)=>(
+
+
+<p key={index}>
+
+{
+alert.message ||
+alert.title ||
+"New Alert"
+}
+
+</p>
+
+
+))
+
+
+) : (
+
+
+<p>
+No new notifications
+</p>
+
+
+)
+
+}
+
+
+
+</div>
+
+)
+
+}
+
+
+
+</div>
+
+
+
+
+
+
+
+{/* Profile */}
+
+
+<div className="profile-wrapper">
+
+
+<div
+className="profile"
+onClick={() =>
+    setOpenMenu(!openMenu)
+}
+>
 
 
 <FaUserCircle/>
@@ -47,15 +216,14 @@ Manage your fleet performance and activities
 <div>
 
 <h4>
-Admin
+{name || "User"}
 </h4>
 
+
 <p>
-Fleet Manager
+{role || "Role"}
 </p>
 
-</div>
-
 
 </div>
 
@@ -63,11 +231,74 @@ Fleet Manager
 </div>
 
 
+
+
+
+{
+
+openMenu && (
+
+
+<div className="profile-dropdown">
+
+
+<p
+onClick={() =>
+    navigate("/profile")
+}
+>
+👤 My Profile
+</p>
+
+
+
+<p
+onClick={() =>
+    navigate("/settings")
+}
+>
+⚙ Settings
+</p>
+
+
+
+<p
+onClick={() =>
+    navigate("/login")
+}
+>
+🚪 Logout
+</p>
+
+
+
 </div>
+
 
 )
 
 }
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+)
+
+
+}
+
 
 
 export default Navbar;

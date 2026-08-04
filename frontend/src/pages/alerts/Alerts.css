@@ -1,180 +1,139 @@
-.page-container{
-padding:20px;
+/* =====================================
+   Alerts page
+   Black + Wine Theme
+   (classnames are scoped/unique so they never collide
+   with the dashboard's alerts widget component)
+===================================== */
+
+.alerts-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
 }
 
-.page-card{
-background:white;
-padding:25px;
-border-radius:12px;
-margin-top:20px;
-}.alerts-container{
+.alert-entry {
 
-margin-top:35px;
+    display: flex;
 
-background:white;
+    gap: 16px;
 
-padding:28px;
+    background: rgba(22,22,22,.92);
 
-border-radius:18px;
+    border: 1px solid rgba(194,24,91,.22);
 
-border:1px solid #e2e8f0;
+    border-radius: 18px;
 
+    padding: 20px 24px;
+
+    transition: .25s;
 }
 
+.alert-entry:hover {
 
+    transform: translateY(-2px);
 
-.alerts-header{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-margin-bottom:25px;
-
+    box-shadow: 0 12px 26px rgba(194,24,91,.18);
 }
 
+.alert-marker {
 
+    flex-shrink: 0;
 
-.alerts-header h2{
+    width: 5px;
 
-margin:0;
+    border-radius: 4px;
 
-color:#0f172a;
-
-font-size:22px;
-
+    background: #64748b;
 }
 
-
-
-.alerts-header span{
-
-background:#fee2e2;
-
-color:#dc2626;
-
-padding:6px 14px;
-
-border-radius:20px;
-
-font-size:13px;
-
-font-weight:600;
-
+.alert-marker.critical {
+    background: #ff4d7d;
 }
 
-
-
-.alert-item{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:18px 0;
-
-border-bottom:1px solid #e2e8f0;
-
+.alert-marker.warning {
+    background: #f5a524;
 }
 
-
-
-.alert-item:last-child{
-
-border-bottom:none;
-
+.alert-marker.info {
+    background: #4ea1ff;
 }
 
+.alert-body {
 
-
-.alert-item h3{
-
-margin:0;
-
-font-size:16px;
-
-color:#0f172a;
-
+    flex: 1;
 }
 
+.alert-body-head {
 
+    display: flex;
 
-.alert-item p{
+    justify-content: space-between;
 
-margin-top:6px;
+    align-items: flex-start;
 
-color:#64748b;
-
-font-size:14px;
-
+    gap: 12px;
 }
 
+.alert-body h3 {
 
+    color: white;
 
-.alert-right{
+    font-size: 16.5px;
 
-display:flex;
-
-flex-direction:column;
-
-align-items:flex-end;
-
-gap:8px;
-
+    margin: 0 0 8px;
 }
 
+.alert-body p {
 
+    color: #CFCFCF;
 
-.alert-type{
+    font-size: 14px;
 
-padding:5px 12px;
+    line-height: 1.5;
 
-border-radius:20px;
-
-font-size:12px;
-
-font-weight:700;
-
+    margin-bottom: 12px;
 }
 
+.alert-badge {
 
+    flex-shrink: 0;
 
-.alert-type.critical{
+    padding: 5px 13px;
 
-background:#fee2e2;
+    border-radius: 20px;
 
-color:#dc2626;
+    font-size: 11.5px;
 
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: .3px;
 }
 
-
-
-.alert-type.warning{
-
-background:#fef3c7;
-
-color:#d97706;
-
+.alert-badge.critical {
+    background: rgba(255,77,125,.15);
+    color: #ff4d7d;
 }
 
-
-
-.alert-type.info{
-
-background:#dbeafe;
-
-color:#2563eb;
-
+.alert-badge.warning {
+    background: rgba(245,165,36,.15);
+    color: #f5a524;
 }
 
+.alert-badge.info {
+    background: rgba(78,161,255,.15);
+    color: #4ea1ff;
+}
 
+.alert-time {
 
-.alert-right small{
+    display: block;
 
-color:#94a3b8;
+    color: #8A8A8A;
 
+    font-size: 12.5px;
 }

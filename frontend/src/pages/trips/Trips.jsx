@@ -1,6 +1,8 @@
 import "./Trips.css";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import Layout from "../../components/layout/Layout";
+import { FaRoute, FaMapSigns } from "react-icons/fa";
 
 function Trips() {
 
@@ -89,9 +91,28 @@ function Trips() {
 
     return (
 
+        <Layout>
+
         <div className="page-container">
 
-            <h1>Trips</h1>
+            <div className="page-head">
+
+                <div>
+                    <h1>Trips</h1>
+                    <p className="page-sub">Schedule and track trips across your fleet</p>
+                </div>
+
+                <span className="page-pill">
+                    <FaRoute /> {trips.length} Total
+                </span>
+
+            </div>
+
+            <div className="panel">
+
+            <h2 className="panel-title">
+                <FaRoute /> Create Trip
+            </h2>
 
             <form onSubmit={handleCreateTrip}>
 
@@ -183,6 +204,18 @@ function Trips() {
 
             </form>
 
+            </div>
+
+            {trips.length === 0 ? (
+
+                <div className="empty-state">
+                    <FaMapSigns />
+                    <p>No trips scheduled yet. Create one above to get started.</p>
+                </div>
+
+            ) : (
+
+            <div className="table-wrap">
 
             <table>
 
@@ -222,7 +255,11 @@ function Trips() {
                                 {new Date(trip.tripDate).toLocaleDateString()}
                             </td>
 
-                            <td>{trip.status}</td>
+                            <td>
+                                <span className={`status ${trip.status.toLowerCase().replace(" ", "-")}`}>
+                                    {trip.status}
+                                </span>
+                            </td>
 
                         </tr>
 
@@ -232,7 +269,13 @@ function Trips() {
 
             </table>
 
+            </div>
+
+            )}
+
         </div>
+
+        </Layout>
 
     );
 

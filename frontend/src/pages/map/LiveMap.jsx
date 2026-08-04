@@ -1,6 +1,8 @@
 import "./LiveMap.css";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import Layout from "../../components/layout/Layout";
+import { FaMapMarkedAlt } from "react-icons/fa";
 
 import {
     MapContainer,
@@ -65,10 +67,19 @@ function LiveMap() {
     if (loading) {
 
         return (
-            <div className="page-container">
-                <h1>Live Map</h1>
-                <p>Loading vehicle locations...</p>
-            </div>
+            <Layout>
+                <div className="page-container">
+                    <div className="page-head">
+                        <div>
+                            <h1>Live Map</h1>
+                            <p className="page-sub">Loading vehicle locations...</p>
+                        </div>
+                    </div>
+                    <div className="map-loading">
+                        <div className="map-spinner" />
+                    </div>
+                </div>
+            </Layout>
         );
 
     }
@@ -76,13 +87,26 @@ function LiveMap() {
 
     return (
 
+        <Layout>
+
         <div className="page-container">
 
-            <h1>Live Map</h1>
+            <div className="page-head">
 
-            <p>
-                Tracking {locations.length} vehicle location(s)
-            </p>
+                <div>
+                    <h1>Live Map</h1>
+                    <p className="page-sub">
+                        Tracking {locations.length} vehicle location{locations.length === 1 ? "" : "s"} in real time
+                    </p>
+                </div>
+
+                <span className="page-pill">
+                    <FaMapMarkedAlt /> {locations.length} Active
+                </span>
+
+            </div>
+
+            <div className="map-panel">
 
             <MapContainer
                 center={[16.3067, 80.4365]}
@@ -131,7 +155,11 @@ function LiveMap() {
 
             </MapContainer>
 
+            </div>
+
         </div>
+
+        </Layout>
 
     );
 

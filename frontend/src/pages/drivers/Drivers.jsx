@@ -1,6 +1,8 @@
 import "./Drivers.css";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import Layout from "../../components/layout/Layout";
+import { FaUserTie, FaUsersSlash } from "react-icons/fa";
 
 function Drivers() {
 
@@ -82,9 +84,28 @@ function Drivers() {
 
     return (
 
+        <Layout>
+
         <div className="page-container">
 
-            <h1>Drivers</h1>
+            <div className="page-head">
+
+                <div>
+                    <h1>Drivers</h1>
+                    <p className="page-sub">Keep track of your drivers and their availability</p>
+                </div>
+
+                <span className="page-pill">
+                    <FaUserTie /> {drivers.length} Total
+                </span>
+
+            </div>
+
+            <div className="panel">
+
+            <h2 className="panel-title">
+                <FaUserTie /> Add Driver
+            </h2>
 
             <form onSubmit={handleAddDriver}>
 
@@ -136,6 +157,18 @@ function Drivers() {
 
             </form>
 
+            </div>
+
+            {drivers.length === 0 ? (
+
+                <div className="empty-state">
+                    <FaUsersSlash />
+                    <p>No drivers added yet. Add one above to get started.</p>
+                </div>
+
+            ) : (
+
+            <div className="table-wrap">
 
             <table>
 
@@ -165,7 +198,11 @@ function Drivers() {
 
                             <td>{driver.experience} years</td>
 
-                            <td>{driver.status}</td>
+                            <td>
+                                <span className={`status ${driver.status.toLowerCase().replace(" ", "-")}`}>
+                                    {driver.status}
+                                </span>
+                            </td>
 
                         </tr>
 
@@ -175,7 +212,13 @@ function Drivers() {
 
             </table>
 
+            </div>
+
+            )}
+
         </div>
+
+        </Layout>
 
     );
 

@@ -1,7 +1,6 @@
 const Trip = require("../models/tripModel");
 const Driver = require("../models/driverModel");
 const Vehicle = require("../models/vehicleModel");
-console.log("VEHICLE STATUS ENUM:", Vehicle.schema.path("status").enumValues);
 // Create Trip
 const createTrip = async (req, res) => {
 

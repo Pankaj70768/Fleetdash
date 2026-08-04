@@ -1,10 +1,52 @@
-.page-container{
-    padding:20px;
+/* =====================================
+   Settings page
+   Black + Wine Theme
+===================================== */
+
+.settings-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 20px;
 }
 
-.page-card{
-    background:white;
-    padding:25px;
-    margin-top:20px;
-    border-radius:12px;
+.settings-card {
+
+    margin-top: 0;
+
+    transition: .3s;
+}
+
+.settings-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 15px 30px rgba(194,24,91,.2);
+}
+
+.settings-card-icon {
+
+    width: 46px;
+
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: linear-gradient(135deg, #7B112C, #C2185B);
+
+    color: white;
+
+    font-size: 19px;
+
+    margin-bottom: 16px;
+
+    box-shadow: 0 10px 22px rgba(194,24,91,.3);
 }

@@ -1,6 +1,8 @@
 import "./Vehicles.css";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import Layout from "../../components/layout/Layout";
+import { FaTruck, FaBoxOpen } from "react-icons/fa";
 
 function Vehicles() {
 
@@ -211,12 +213,31 @@ function Vehicles() {
 
     return (
 
+        <Layout>
+
         <div className="page-container">
 
-            <h1>Vehicles</h1>
+            <div className="page-head">
+
+                <div>
+                    <h1>Vehicles</h1>
+                    <p className="page-sub">Manage your fleet vehicles and keep their status up to date</p>
+                </div>
+
+                <span className="page-pill">
+                    <FaTruck /> {vehicles.length} Total
+                </span>
+
+            </div>
 
 
             {/* ADD / EDIT FORM */}
+
+            <div className="panel">
+
+            <h2 className="panel-title">
+                <FaTruck /> {editingId ? "Update Vehicle" : "Add Vehicle"}
+            </h2>
 
             <form onSubmit={handleSubmit}>
 
@@ -308,6 +329,8 @@ function Vehicles() {
 
             </form>
 
+            </div>
+
 
             {/* SEARCH */}
 
@@ -322,6 +345,17 @@ function Vehicles() {
 
 
             {/* VEHICLE TABLE */}
+
+            {filteredVehicles.length === 0 ? (
+
+                <div className="empty-state">
+                    <FaBoxOpen />
+                    <p>No vehicles found. Add one above to get started.</p>
+                </div>
+
+            ) : (
+
+            <div className="table-wrap">
 
             <table>
 
@@ -355,7 +389,7 @@ function Vehicles() {
 
                             <td>
 
-                                <span className="status">
+                                <span className={`status ${vehicle.status.toLowerCase().replace(" ", "-")}`}>
                                     {vehicle.status}
                                 </span>
 
@@ -395,7 +429,13 @@ function Vehicles() {
 
             </table>
 
+            </div>
+
+            )}
+
         </div>
+
+        </Layout>
 
     );
 
