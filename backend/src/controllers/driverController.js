@@ -1,9 +1,11 @@
 const Driver = require("../models/driverModel");
+const { getIO } = require("../socket/socket");
 
 // Create Driver
 const createDriver = async (req, res) => {
     try {
         const driver = await Driver.create(req.body);
+        getIO().emit("driverCreated", driver);
 
         res.status(201).json({
             success: true,
@@ -96,6 +98,7 @@ const updateDriver = async (req, res) => {
                 message: "Driver not found"
             });
         }
+        getIO().emit("driverUpdated", driver);
 
         res.status(200).json({
             success: true,
@@ -120,6 +123,9 @@ const deleteDriver = async (req, res) => {
                 message: "Driver not found"
             });
         }
+        getIO().emit("driverDeleted", {
+    id: req.params.id,
+});
 
         res.status(200).json({
             success: true,

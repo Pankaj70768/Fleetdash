@@ -1,7 +1,8 @@
 const Trip = require("../models/tripModel");
 const Driver = require("../models/driverModel");
 const Vehicle = require("../models/vehicleModel");
-console.log("VEHICLE STATUS ENUM:", Vehicle.schema.path("status").enumValues);
+const { getIO } = require("../socket/socket");
+
 // Create Trip
 const createTrip = async (req, res) => {
 
@@ -65,6 +66,9 @@ await driver.save();
 
 vehicle.status = "On Trip";
 await vehicle.save();
+getIO().emit("tripCreated", trip);
+getIO().emit("driverUpdated", driver);
+getIO().emit("vehicleUpdated", vehicle);
 
         res.status(201).json({
 
@@ -204,6 +208,7 @@ const updateTrip = async (req, res) => {
             });
 
         }
+        getIO().emit("tripUpdated", trip);
 
         res.status(200).json({
 
@@ -247,6 +252,9 @@ const deleteTrip = async (req, res) => {
             });
 
         }
+        getIO().emit("tripDeleted", {
+    id: req.params.id,
+});
 
         res.status(200).json({
 

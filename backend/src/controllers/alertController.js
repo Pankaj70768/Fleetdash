@@ -1,4 +1,5 @@
 const Alert = require("../models/alertModel");
+const { getIO } = require("../socket/socket");
 
 // Create Alert
 const createAlert = async (req, res) => {
@@ -6,6 +7,7 @@ const createAlert = async (req, res) => {
     try {
 
         const alert = await Alert.create(req.body);
+        getIO().emit("alertCreated", alert);
 
         res.status(201).json({
             success: true,
