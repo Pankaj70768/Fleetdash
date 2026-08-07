@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/login/Login";
@@ -13,8 +14,10 @@ import Profile from "./pages/profile/Profile";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Drivers from "./pages/drivers/Drivers";
 import Trips from "./pages/trips/Trips";
-
+import socket from "./services/socket";
+import "./services/socket";
 function App(){
+    console.log("Socket Connected:", socket.connected);
 
 return(
 
