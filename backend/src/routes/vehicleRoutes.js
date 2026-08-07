@@ -8,10 +8,7 @@ const {
     updateVehicle,
     deleteVehicle
 } = require("../controllers/vehicleController");
-const {
-    protect,
-    authorize
-} = require("../middleware/authMiddleware");
+const { protect } = require("../middleware/authMiddleware");
 router.post("/", protect, createVehicle);
 
 router.get("/", protect, getAllVehicles);

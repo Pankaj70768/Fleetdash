@@ -1,5 +1,6 @@
 const Vehicle = require("../models/vehicleModel");
 const Driver = require("../models/driverModel");
+const Trip = require("../models/tripModel");
 
 const getDashboardData = async (req, res) => {
 
@@ -25,6 +26,16 @@ const getDashboardData = async (req, res) => {
             status: "On Trip"
         });
 
+        const totalTrips = await Trip.countDocuments();
+
+const activeTrips = await Trip.countDocuments({
+    status: "In Progress"
+});
+
+const completedTrips = await Trip.countDocuments({
+    status: "Completed"
+});
+
         res.status(200).json({
 
             success: true,
@@ -41,7 +52,10 @@ const getDashboardData = async (req, res) => {
 
                 availableDrivers,
 
-                driversOnTrip
+                driversOnTrip,
+                totalTrips,
+activeTrips,
+completedTrips
 
             }
 
@@ -55,7 +69,10 @@ const getDashboardData = async (req, res) => {
 
             success: false,
 
-            message: error.message
+            message: "Failed to fetch dashboard data.",
+
+            error: error.message
+
 
         });
 

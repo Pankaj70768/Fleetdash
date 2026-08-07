@@ -32,14 +32,20 @@ const registerUser = async (req, res) => {
         res.status(201).json({
             success: true,
             message: "User registered successfully",
-            data: user
+            data: {
+    id: user._id,
+    name: user.name,
+    email: user.email,
+    role: user.role
+}
         });
 
     } catch (error) {
 
         res.status(500).json({
             success: false,
-            message: error.message
+            message: "Authentication failed.",
+error: error.message
         });
 
     }
@@ -88,7 +94,7 @@ const loginUser = async (req, res) => {
                 role: user.role
             },
 
-            "fleetdash_secret_key",
+            process.env.JWT_SECRET,
 
             {
                 expiresIn: "1d"
@@ -114,7 +120,8 @@ const loginUser = async (req, res) => {
 
             success: false,
 
-            message: error.message
+            message: "Authentication failed.",
+error: error.message
 
         });
 

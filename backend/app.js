@@ -54,6 +54,7 @@ app.use((req, res, next) => {
     error.statusCode = 404;
     next(error);
 });
+
 // Home Route
 app.get("/", (req, res) => {
     res.json({
