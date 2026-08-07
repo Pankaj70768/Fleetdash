@@ -8,9 +8,14 @@ const {
     updateDriver,
     deleteDriver
 } = require("../controllers/driverController");
-router.post("/", createDriver);
-router.get("/", getAllDrivers);
-router.get("/:id", getDriverById);
-router.put("/:id", updateDriver);
-router.delete("/:id", deleteDriver);
+const { protect } = require("../middleware/authMiddleware");
+router.post("/", protect, createDriver);
+
+router.get("/", protect, getAllDrivers);
+
+router.get("/:id", protect, getDriverById);
+
+router.put("/:id", protect, updateDriver);
+
+router.delete("/:id", protect, deleteDriver);
 module.exports = router;

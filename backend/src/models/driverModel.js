@@ -9,16 +9,19 @@ const driverSchema = new mongoose.Schema(
         },
 
         phoneNumber: {
-            type: String,
-            required: true,
-            unique: true,
-        },
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+},
 
         licenseNumber: {
-            type: String,
-            required: true,
-            unique: true,
-        },
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+    uppercase: true,
+},
 
         experience: {
             type: Number,

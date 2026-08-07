@@ -15,7 +15,7 @@ const protect = (req, res, next) => {
 
             const decoded = jwt.verify(
                 token,
-                "fleetdash_secret_key"
+                process.env.JWT_SECRET
             );
 
             req.user = decoded;
@@ -28,7 +28,7 @@ const protect = (req, res, next) => {
 
                 success: false,
 
-                message: "Invalid Token"
+                message: "Invalid or expired token."
 
             });
 
@@ -42,7 +42,7 @@ const protect = (req, res, next) => {
 
             success: false,
 
-            message: "No Token Provided"
+            message: "Authentication token is required."
 
         });
 

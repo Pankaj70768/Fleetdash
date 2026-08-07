@@ -3,14 +3,17 @@ const mongoose = require("mongoose");
 const vehicleSchema = new mongoose.Schema(
   {
     vehicleNumber: {
-      type: String,
-      required: true,
-      unique: true,
-    },
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+    uppercase: true,
+},
 
     driverName: {
       type: String,
       required: true,
+      trim: true,
     },
 
     vehicleType: {
