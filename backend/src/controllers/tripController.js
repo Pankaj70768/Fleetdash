@@ -2,7 +2,6 @@ const Trip = require("../models/tripModel");
 const Driver = require("../models/driverModel");
 const Vehicle = require("../models/vehicleModel");
 const { getIO } = require("../socket/socket");
-
 // Create Trip
 const createTrip = async (req, res) => {
 

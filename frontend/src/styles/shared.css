@@ -1,0 +1,496 @@
+/* =====================================================
+   FleetDash Shared UI Kit
+   Black + Wine Theme
+   Used across Vehicles / Drivers / Trips / Reports /
+   Live Map / Alerts / Settings / Profile
+===================================================== */
+
+/* ---------- Page header ---------- */
+
+.page-head {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    flex-wrap: wrap;
+
+    gap: 16px;
+
+    margin-bottom: 30px;
+}
+
+.page-head h1 {
+
+    margin-bottom: 6px;
+}
+
+.page-sub {
+
+    color: #A8A29E;
+
+    font-size: 15px;
+}
+
+.page-pill {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 18px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(135deg, #7B112C, #C2185B);
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    box-shadow: 0 10px 25px rgba(194,24,91,.3);
+
+    white-space: nowrap;
+}
+
+/* ---------- Glass panel (forms, cards) ---------- */
+
+.panel {
+
+    background: rgba(22,22,22,.92);
+
+    backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(194,24,91,.22);
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.35);
+
+    margin-bottom: 30px;
+}
+
+.panel-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: white;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    margin-bottom: 22px;
+}
+
+.panel-title svg {
+
+    color: #FF4D7D;
+
+    font-size: 20px;
+}
+
+/* ---------- Forms ---------- */
+
+.page-container form,
+.panel form {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    gap: 18px;
+
+    align-items: end;
+}
+
+.page-container form input,
+.page-container form select,
+.panel form input,
+.panel form select {
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border-radius: 12px;
+
+    border: 1px solid #3B3B3B;
+
+    background: #202020;
+
+    color: white;
+
+    font-size: 14.5px;
+
+    font-family: inherit;
+
+    outline: none;
+
+    transition: .25s;
+
+    box-sizing: border-box;
+}
+
+.page-container form input::placeholder {
+
+    color: #8A8A8A;
+}
+
+.page-container form input:focus,
+.page-container form select:focus {
+
+    border-color: #A61E4D;
+
+    box-shadow: 0 0 0 4px rgba(166,30,77,.18);
+}
+
+.page-container form select {
+
+    cursor: pointer;
+}
+
+.page-container form select option {
+
+    background: #202020;
+
+    color: white;
+}
+
+.page-container form button,
+.panel form button {
+
+    grid-column: span 1;
+
+    padding: 14px 22px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #7B112C, #A61E4D);
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    box-shadow: 0 10px 22px rgba(166,30,77,.3);
+}
+
+.page-container form button:hover,
+.panel form button:hover {
+
+    transform: translateY(-2px);
+
+    background: linear-gradient(135deg, #91183B, #C1225D);
+
+    box-shadow: 0 14px 28px rgba(166,30,77,.4);
+}
+
+.page-container form button:active,
+.panel form button:active {
+
+    transform: scale(.98);
+}
+
+/* ---------- Search input ---------- */
+
+.search,
+.search-box {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 340px;
+
+    padding: 13px 18px;
+
+    margin: 26px 0 18px;
+
+    border-radius: 30px;
+
+    border: 1px solid rgba(194,24,91,.3);
+
+    background: rgba(255,255,255,.04);
+
+    color: white;
+
+    font-size: 14.5px;
+
+    outline: none;
+
+    transition: .25s;
+}
+
+.search::placeholder,
+.search-box::placeholder {
+
+    color: #8A8A8A;
+}
+
+.search:focus,
+.search-box:focus {
+
+    border-color: #A61E4D;
+
+    box-shadow: 0 0 0 4px rgba(166,30,77,.18);
+}
+
+/* ---------- Table card (light glass card, matches Dashboard widget) ---------- */
+
+.table-wrap {
+
+    background: rgba(255,255,255,.97);
+
+    border-radius: 20px;
+
+    padding: 8px;
+
+    overflow-x: auto;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.35);
+}
+
+.page-container table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 560px;
+}
+
+.page-container thead {
+
+    background: #0f172a;
+}
+
+.page-container th {
+
+    color: white;
+
+    padding: 15px 18px;
+
+    text-align: left;
+
+    font-size: 12.5px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .5px;
+}
+
+.page-container th:first-child {
+
+    border-top-left-radius: 14px;
+}
+
+.page-container th:last-child {
+
+    border-top-right-radius: 14px;
+}
+
+.page-container td {
+
+    padding: 15px 18px;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    color: #334155;
+
+    font-size: 14px;
+}
+
+.page-container tbody tr {
+
+    transition: .2s;
+}
+
+.page-container tbody tr:hover {
+
+    background: #f8fafc;
+}
+
+.page-container tbody tr:last-child td {
+
+    border-bottom: none;
+}
+
+/* ---------- Status pill inside tables ---------- */
+
+.page-container .status {
+
+    display: inline-block;
+
+    padding: 6px 14px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    background: #f1f5f9;
+
+    color: #475569;
+}
+
+.page-container .status.active,
+.page-container .status.available,
+.page-container .status.completed {
+
+    background: #dcfce7;
+
+    color: #15803d;
+}
+
+.page-container .status.inactive,
+.page-container .status.leave,
+.page-container .status.scheduled {
+
+    background: #fef3c7;
+
+    color: #b45309;
+}
+
+.page-container .status.maintenance,
+.page-container .status.on-trip {
+
+    background: #fee2e2;
+
+    color: #dc2626;
+}
+
+.page-container .status.in-progress {
+
+    background: #dbeafe;
+
+    color: #2563eb;
+}
+
+/* ---------- Action buttons inside tables ---------- */
+
+.page-container td button {
+
+    border: none;
+
+    padding: 8px 14px;
+
+    border-radius: 8px;
+
+    font-size: 12.5px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    margin-right: 8px;
+
+    transition: .2s;
+}
+
+.page-container td button:first-of-type {
+
+    background: #e0e7ff;
+
+    color: #3730a3;
+}
+
+.page-container td button:first-of-type:hover {
+
+    background: #c7d2fe;
+}
+
+.page-container td button:last-of-type {
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+}
+
+.page-container td button:last-of-type:hover {
+
+    background: #fecaca;
+}
+
+/* ---------- Empty state ---------- */
+
+.empty-state {
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    color: #A8A29E;
+}
+
+.empty-state svg {
+
+    font-size: 34px;
+
+    color: #6b2338;
+
+    margin-bottom: 12px;
+}
+
+/* ---------- Generic content card (Reports / Settings) ---------- */
+
+.page-card {
+
+    margin-top: 20px;
+
+    padding: 26px;
+
+    background: rgba(22,22,22,.92);
+
+    border: 1px solid rgba(194,24,91,.22);
+
+    border-radius: 20px;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.3);
+}
+
+.page-card h2 {
+
+    color: white;
+
+    font-size: 19px;
+
+    margin-bottom: 10px;
+}
+
+.page-card p {
+
+    color: #CFCFCF;
+
+    font-size: 14.5px;
+
+    line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+
+    .page-container form {
+
+        grid-template-columns: 1fr;
+    }
+}
