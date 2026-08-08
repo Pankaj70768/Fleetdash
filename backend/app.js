@@ -31,37 +31,29 @@ app.use(
     })
 );
 
-// Body Parser / Rate Limiter
-const limiter = rateLimit({
+// Body Parser
+app.use(express.json());
+
+// Rate limiter — scoped to auth routes only (brute-force protection),
+// not applied globally, so normal app usage never gets throttled.
+const authLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
-    max: 100,
+    max: 50,
     message: {
         success: false,
         message: "Too many requests. Please try again later."
     }
 });
 
-app.use(limiter);
-
-app.use(express.json());
-
 app.use("/api/vehicles", vehicleRoutes);
 app.use("/api/drivers", driverRoutes);
-app.use("/api/auth", authRoutes);
+app.use("/api/auth", authLimiter, authRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/trips", tripRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/alerts", alertRoutes);
 app.use("/api/reports", reportRoutes);
 app.use("/api/location", locationRoutes);
-
-app.use(errorHandler);
-
-app.use((req, res, next) => {
-    const error = new Error(`Route Not Found - ${req.originalUrl}`);
-    error.statusCode = 404;
-    next(error);
-});
 
 // Home Route
 app.get("/", (req, res) => {
@@ -70,5 +62,13 @@ app.get("/", (req, res) => {
         message: "FleetDash Backend API Running 🚀"
     });
 });
+
+app.use((req, res, next) => {
+    const error = new Error(`Route Not Found - ${req.originalUrl}`);
+    error.statusCode = 404;
+    next(error);
+});
+
+app.use(errorHandler);
 
 module.exports = app;

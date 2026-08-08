@@ -139,7 +139,7 @@ function Profile() {
                                 </h3>
 
                                 <p>
-                                    ROLE TEST: {role}
+                                    Role: {role}
                                 </p>
 
                             </div>
