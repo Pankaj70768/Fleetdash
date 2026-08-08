@@ -1,9 +1,17 @@
 const Location = require("../models/locationModel");
+const { getIO } = require("../socket/socket");
 
 // Create Vehicle Location
 const createLocation = async (req, res) => {
     try {
-        const location = await Location.create(req.body);
+        let location = await Location.create(req.body);
+        location = await location.populate("vehicle");
+
+        try {
+            getIO().emit("locationUpdated", location);
+        } catch (socketError) {
+            console.error("Socket emit failed:", socketError.message);
+        }
 
         res.status(201).json({
             success: true,

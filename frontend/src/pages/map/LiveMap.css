@@ -95,3 +95,203 @@
 
     color: #CFCFCF;
 }
+
+/* =====================================
+   Status legend
+===================================== */
+
+.map-legend {
+
+    display: flex;
+
+    gap: 22px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 16px;
+
+}
+
+.legend-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #D6D6D6;
+
+    font-size: 13.5px;
+
+    font-weight: 600;
+
+}
+
+.legend-dot {
+
+    width: 11px;
+
+    height: 11px;
+
+    border-radius: 50%;
+
+    display: inline-block;
+
+    box-shadow: 0 0 8px currentColor;
+
+}
+
+/* =====================================
+   Custom vehicle markers (div icons)
+===================================== */
+
+.fleet-marker {
+
+    position: relative;
+
+    width: 26px;
+
+    height: 26px;
+
+}
+
+.fleet-marker-dot {
+
+    position: absolute;
+
+    top: 6px;
+
+    left: 6px;
+
+    width: 14px;
+
+    height: 14px;
+
+    border-radius: 50%;
+
+    border: 2px solid white;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,.5);
+
+}
+
+.fleet-marker-pulse {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 26px;
+
+    height: 26px;
+
+    border-radius: 50%;
+
+    animation: fleet-pulse 1.8s ease-out infinite;
+
+}
+
+@keyframes fleet-pulse {
+
+    0% { transform: scale(0.6); opacity: .9; }
+    100% { transform: scale(1.6); opacity: 0; }
+
+}
+
+/* Vehicle number label above each marker */
+
+.leaflet-tooltip.fleet-marker + .leaflet-tooltip,
+.fleet-map .leaflet-tooltip {
+
+    background: rgba(22,22,22,.92);
+
+    color: white;
+
+    border: 1px solid rgba(194,24,91,.35);
+
+    border-radius: 8px;
+
+    font-size: 11.5px;
+
+    font-weight: 700;
+
+    padding: 3px 8px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,.35);
+
+}
+
+.fleet-map .leaflet-tooltip::before {
+
+    border-top-color: rgba(194,24,91,.35);
+
+}
+
+/* =====================================
+   Popup content
+===================================== */
+
+.map-popup {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+}
+
+.map-popup strong {
+
+    font-size: 14.5px;
+
+}
+
+.map-popup p {
+
+    margin: 0;
+
+    color: #C9C9C9;
+
+}
+
+.popup-status {
+
+    display: inline-block;
+
+    width: fit-content;
+
+    padding: 3px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    margin: 2px 0 4px;
+
+}
+
+.popup-status.running {
+    background: #14532d;
+    color: #4ADE80;
+}
+
+.popup-status.idle {
+    background: #374151;
+    color: #D1D5DB;
+}
+
+.popup-status.speeding {
+    background: #7f1d1d;
+    color: #FCA5A5;
+}
+
+.popup-status.unknown {
+    background: #374151;
+    color: #D1D5DB;
+}

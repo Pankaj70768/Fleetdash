@@ -3,6 +3,7 @@ import { FaBell, FaUserCircle } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
+import { getPreferences } from "../../utils/preferences";
 
 
 function Navbar(){
@@ -18,6 +19,28 @@ function Navbar(){
     const [openNotifications, setOpenNotifications] = useState(false);
 
     const [notifications, setNotifications] = useState([]);
+
+    const [prefs, setPrefs] = useState(getPreferences());
+
+    useEffect(() => {
+
+        const syncPrefs = () => setPrefs(getPreferences());
+
+        window.addEventListener("preferences-updated", syncPrefs);
+
+        return () => window.removeEventListener("preferences-updated", syncPrefs);
+
+    }, []);
+
+    const typeToPrefKey = {
+        Info: "notifyInfo",
+        Warning: "notifyWarning",
+        Critical: "notifyCritical",
+    };
+
+    const visibleNotifications = notifications.filter(
+        (alert) => prefs[typeToPrefKey[alert.type]] !== false
+    );
 
 
 
@@ -123,7 +146,7 @@ onClick={() =>
 
 
 <span>
-{notifications.length}
+{visibleNotifications.length}
 </span>
 
 
@@ -146,10 +169,10 @@ Notifications
 
 {
 
-notifications.length > 0 ? (
+visibleNotifications.length > 0 ? (
 
 
-notifications.map((alert,index)=>(
+visibleNotifications.map((alert,index)=>(
 
 
 <p key={index}>
@@ -263,9 +286,10 @@ onClick={() =>
 
 
 <p
-onClick={() =>
-    navigate("/login")
-}
+onClick={() => {
+    localStorage.removeItem("token");
+    navigate("/login");
+}}
 >
 🚪 Logout
 </p>

@@ -16,11 +16,13 @@ import Drivers from "./pages/drivers/Drivers";
 import Trips from "./pages/trips/Trips";
 import socket from "./services/socket";
 import "./services/socket";
+import { SocketProvider } from "./context/SocketContext";
 function App(){
     console.log("Socket Connected:", socket.connected);
 
 return(
 
+<SocketProvider>
 <BrowserRouter>
 
 <Routes>
@@ -133,6 +135,7 @@ element={
 </Routes>
 
 </BrowserRouter>
+</SocketProvider>
 
 )
 
