@@ -337,7 +337,7 @@ sequenceDiagram
 
 </div>
 
-> **Replace these images with your actual screenshots.**
+
 
 ---
 
